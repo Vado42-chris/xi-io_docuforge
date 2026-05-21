@@ -7,7 +7,11 @@ const requiredFiles = [
   'docs/execution-sequence.md',
   'docs/product/docuforge-product-brief.md',
   'docs/framework/form-template-field-identity-standard-v1.md',
-  'docs/framework/document-security-and-permissions-standard-v1.md'
+  'docs/framework/document-security-and-permissions-standard-v1.md',
+  'docs/schemas/form-library-record.schema.md',
+  'docs/schemas/form-template.schema.md',
+  'docs/workflows/upload-declaration-workflow-v1.md',
+  'docs/workflows/admin-review-queue-states-v1.md'
 ];
 
 const missing = requiredFiles.filter((filePath) => !fs.existsSync(filePath));
