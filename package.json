@@ -1,0 +1,10 @@
+{
+  "name": "xi-io-docuforge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "xi-io DocuForge blank-form library and document reconstruction project.",
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/check-docuforge-foundation.mjs"
+  }
+}
