@@ -8,6 +8,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
     "check": "node scripts/check-docuforge-foundation.mjs"
   },
   "dependencies": {
@@ -17,5 +19,10 @@
     "react": "latest",
     "react-dom": "latest"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@storybook/react-vite": "latest",
+    "@storybook/addon-docs": "latest",
+    "@storybook/addon-a11y": "latest",
+    "storybook": "latest"
+  }
 }
