@@ -23,6 +23,7 @@ const requiredFiles = [
   'src/main.tsx',
   'src/App.tsx',
   'src/domain/forms.ts',
+  'src/domain/uploadDeclaration.ts',
   'src/data/seedForms.ts',
   'src/components/xi/XiAppShell.tsx',
   'src/components/xi/XiAppShell.stories.tsx',
@@ -40,7 +41,10 @@ const requiredFiles = [
   'src/components/df/DfFormSearchBar.stories.tsx',
   'src/components/df/DfLibraryResults.tsx',
   'src/components/df/DfLibraryResults.stories.tsx',
+  'src/components/df/DfUploadDeclaration.tsx',
+  'src/components/df/DfUploadDeclaration.stories.tsx',
   'src/pages/DfLibraryPage.tsx',
+  'src/pages/DfUploadPage.tsx',
   'src/pages/PlaceholderPage.tsx',
   'src/styles/tokens.css',
   'src/styles/app.css'
@@ -85,6 +89,19 @@ if (missingRoutes.length > 0) {
     console.error(`- ${route}`);
   }
   process.exit(1);
+}
+
+if (!appSource.includes('DfUploadPage')) {
+  console.error('DocuForge foundation check failed. /upload is not wired to DfUploadPage.');
+  process.exit(1);
+}
+
+const uploadSource = fs.readFileSync('src/domain/uploadDeclaration.ts', 'utf8');
+for (const uploadState of ['blocked_filled_content', 'public_review_requested', 'private_saved', 'workspace_saved']) {
+  if (!uploadSource.includes(uploadState)) {
+    console.error(`DocuForge foundation check failed. Upload state missing: ${uploadState}`);
+    process.exit(1);
+  }
 }
 
 const tokenSource = fs.readFileSync('src/styles/tokens.css', 'utf8');
