@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "check": "node scripts/check-docuforge-foundation.mjs"
+    "check:a11y": "node scripts/check-a11y-foundation.mjs",
+    "check": "node scripts/check-docuforge-foundation.mjs && npm run check:a11y"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
