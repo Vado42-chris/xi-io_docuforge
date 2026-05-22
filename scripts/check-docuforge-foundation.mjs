@@ -16,10 +16,13 @@ const requiredFiles = [
   'docs/framework/form-template-field-identity-standard-v1.md',
   'docs/framework/document-security-and-permissions-standard-v1.md',
   'docs/framework/component-promotion-rules-v1.md',
+  'docs/framework/accessibility-standard-v1.md',
+  'docs/ux/keyboard-paths-library-and-upload-v1.md',
   'docs/schemas/form-library-record.schema.md',
   'docs/schemas/form-template.schema.md',
   'docs/workflows/upload-declaration-workflow-v1.md',
   'docs/workflows/admin-review-queue-states-v1.md',
+  'scripts/check-a11y-foundation.mjs',
   'src/main.tsx',
   'src/App.tsx',
   'src/domain/forms.ts',
@@ -72,7 +75,7 @@ for (const filePath of requiredFiles) {
 }
 
 const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-for (const scriptName of ['check', 'build', 'storybook', 'build-storybook']) {
+for (const scriptName of ['check', 'check:a11y', 'build', 'storybook', 'build-storybook']) {
   if (!packageJson.scripts?.[scriptName]) {
     console.error(`DocuForge foundation check failed. Missing package script: ${scriptName}`);
     process.exit(1);
