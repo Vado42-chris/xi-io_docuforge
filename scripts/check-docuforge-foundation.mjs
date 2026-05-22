@@ -9,10 +9,13 @@ const requiredFiles = [
   'tsconfig.json',
   'tsconfig.app.json',
   'vite.config.ts',
+  '.storybook/main.ts',
+  '.storybook/preview.ts',
   'docs/execution-sequence.md',
   'docs/product/docuforge-product-brief.md',
   'docs/framework/form-template-field-identity-standard-v1.md',
   'docs/framework/document-security-and-permissions-standard-v1.md',
+  'docs/framework/component-promotion-rules-v1.md',
   'docs/schemas/form-library-record.schema.md',
   'docs/schemas/form-template.schema.md',
   'docs/workflows/upload-declaration-workflow-v1.md',
@@ -22,13 +25,21 @@ const requiredFiles = [
   'src/domain/forms.ts',
   'src/data/seedForms.ts',
   'src/components/xi/XiAppShell.tsx',
+  'src/components/xi/XiAppShell.stories.tsx',
   'src/components/xi/XiBadge.tsx',
+  'src/components/xi/XiBadge.stories.tsx',
   'src/components/xi/XiButton.tsx',
+  'src/components/xi/XiButton.stories.tsx',
   'src/components/xi/XiEmptyState.tsx',
+  'src/components/xi/XiEmptyState.stories.tsx',
   'src/components/xi/XiNotice.tsx',
+  'src/components/xi/XiNotice.stories.tsx',
   'src/components/xi/XiPageHeader.tsx',
+  'src/components/xi/XiPageHeader.stories.tsx',
   'src/components/df/DfFormSearchBar.tsx',
+  'src/components/df/DfFormSearchBar.stories.tsx',
   'src/components/df/DfLibraryResults.tsx',
+  'src/components/df/DfLibraryResults.stories.tsx',
   'src/pages/DfLibraryPage.tsx',
   'src/pages/PlaceholderPage.tsx',
   'src/styles/tokens.css',
@@ -53,6 +64,14 @@ for (const filePath of requiredFiles) {
       console.error(`DocuForge foundation check failed. Token-like secret pattern found in ${filePath}.`);
       process.exit(1);
     }
+  }
+}
+
+const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+for (const scriptName of ['check', 'build', 'storybook', 'build-storybook']) {
+  if (!packageJson.scripts?.[scriptName]) {
+    console.error(`DocuForge foundation check failed. Missing package script: ${scriptName}`);
+    process.exit(1);
   }
 }
 
@@ -86,6 +105,14 @@ if (missingTokens.length > 0) {
     console.error(`- ${token}`);
   }
   process.exit(1);
+}
+
+const storybookPreview = fs.readFileSync('.storybook/preview.ts', 'utf8');
+for (const cssImport of ['../src/styles/tokens.css', '../src/styles/app.css']) {
+  if (!storybookPreview.includes(cssImport)) {
+    console.error(`DocuForge foundation check failed. Storybook preview missing CSS import: ${cssImport}`);
+    process.exit(1);
+  }
 }
 
 console.log(`DocuForge foundation check passed (${requiredFiles.length} files).`);
