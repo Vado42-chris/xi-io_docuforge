@@ -1,7 +1,9 @@
+import type { ReactNode } from 'react';
+
 type XiBadgeTone = 'neutral' | 'success' | 'warning' | 'danger' | 'info';
 
 type XiBadgeProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   tone?: XiBadgeTone;
 };
 
