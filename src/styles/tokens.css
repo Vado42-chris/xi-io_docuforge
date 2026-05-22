@@ -1,0 +1,78 @@
+:root {
+  color-scheme: light;
+
+  --xi-space-1: 0.25rem;
+  --xi-space-2: 0.5rem;
+  --xi-space-3: 0.75rem;
+  --xi-space-4: 1rem;
+  --xi-space-5: 1.25rem;
+  --xi-space-6: 1.5rem;
+  --xi-space-8: 2rem;
+  --xi-space-10: 2.5rem;
+  --xi-space-12: 3rem;
+
+  --xi-font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --xi-font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  --xi-text-xs: 0.75rem;
+  --xi-text-sm: 0.875rem;
+  --xi-text-base: 1rem;
+  --xi-text-lg: 1.125rem;
+  --xi-text-xl: 1.35rem;
+  --xi-text-2xl: clamp(1.75rem, 3vw, 2.65rem);
+
+  --xi-leading-tight: 1.15;
+  --xi-leading-normal: 1.5;
+  --xi-leading-readable: 1.65;
+
+  --xi-radius-sm: 0.4rem;
+  --xi-radius-md: 0.7rem;
+  --xi-radius-lg: 1rem;
+  --xi-radius-xl: 1.25rem;
+
+  --xi-color-bg: #f3f0ea;
+  --xi-color-bg-texture: #ebe7df;
+  --xi-color-surface: #fffdf8;
+  --xi-color-surface-muted: #f8f4ec;
+  --xi-color-surface-strong: #ffffff;
+  --xi-color-border: #c8bfb0;
+  --xi-color-border-strong: #8c8172;
+  --xi-color-text: #181510;
+  --xi-color-muted: #655d53;
+  --xi-color-inverse: #fffaf0;
+
+  --xi-color-primary: #3454d1;
+  --xi-color-primary-strong: #1f338f;
+  --xi-color-info: #2b6c8f;
+  --xi-color-success: #2e6f42;
+  --xi-color-warning: #9a5b13;
+  --xi-color-danger: #9d2e2e;
+  --xi-color-focus: #2149ff;
+
+  --xi-shadow-soft: 0 16px 48px rgb(46 39 28 / 12%);
+  --xi-shadow-card: 0 10px 28px rgb(46 39 28 / 9%);
+  --xi-focus-ring: 0 0 0 3px rgb(33 73 255 / 28%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --xi-color-bg: #11110f;
+    --xi-color-bg-texture: #191814;
+    --xi-color-surface: #1d1b17;
+    --xi-color-surface-muted: #25231e;
+    --xi-color-surface-strong: #29261f;
+    --xi-color-border: #514a3f;
+    --xi-color-border-strong: #918574;
+    --xi-color-text: #f8f1e4;
+    --xi-color-muted: #c7bda9;
+    --xi-color-inverse: #11110f;
+    --xi-color-primary: #9eb3ff;
+    --xi-color-primary-strong: #c7d3ff;
+    --xi-color-info: #91d7ff;
+    --xi-color-success: #93d9a2;
+    --xi-color-warning: #f4bf75;
+    --xi-color-danger: #ff9999;
+    --xi-color-focus: #b9c7ff;
+  }
+}
