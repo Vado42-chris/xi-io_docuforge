@@ -1,17 +1,11 @@
 import { XiAppShell } from './components/xi/XiAppShell';
 import { DfLibraryPage } from './pages/DfLibraryPage';
+import { DfUploadPage } from './pages/DfUploadPage';
 import { PlaceholderPage } from './pages/PlaceholderPage';
 
 const routeContent = {
   '/library': <DfLibraryPage />,
-  '/upload': (
-    <PlaceholderPage
-      eyebrow="Upload declaration"
-      title="Declare source and safety before processing."
-      description="The upload workflow will collect blank-form attestation, source metadata, and sharing intent before any file can enter review."
-      nextStep="DOCUFORGE-UPLOAD-01 will build this as a state machine, not a backend upload shortcut."
-    />
-  ),
+  '/upload': <DfUploadPage />,
   '/review': (
     <PlaceholderPage
       eyebrow="Template review"
